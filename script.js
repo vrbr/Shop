@@ -11,8 +11,8 @@ spinnerPage.render();
 
 let CATALOG = [];
 
-// 'server/catalog.json'
-fetch('https://api.jsonbin.io/b/61732cdd9548541c29c72433')
+// 'https://api.jsonbin.io/b/61732cdd9548541c29c72433' - фейковый сервер
+fetch('server/catalog.json')
     .then(res => res.json())
     .then(body => {
         CATALOG = body;
@@ -23,5 +23,6 @@ fetch('https://api.jsonbin.io/b/61732cdd9548541c29c72433')
         }, 1000);
     })
     .catch(error => {
-        console.log(error);
+        spinnerPage.handleClear();
+        errorPage.render();
     });
